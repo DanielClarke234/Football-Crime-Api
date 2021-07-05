@@ -30,10 +30,13 @@ namespace Football_Crime_Api.Controllers
             {
                 var crimes = _footballCrime.GetTeamsAndCrimes();
 
+                //NOTE: Would use a mapping facility such as auto mapper with a specific return model if a specific return model is required
+
                 return Ok(crimes);
             }
             catch (UserException ue)
             {
+                //Catch exceptions that we are willing to show to the user
                 return BadRequest(ue.Message);
             }
             catch (Exception e)

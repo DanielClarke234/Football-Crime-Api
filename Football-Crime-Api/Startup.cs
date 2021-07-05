@@ -1,3 +1,4 @@
+using Football_Crime_Api.DAL.Crime;
 using Football_Crime_Api.DAL.Postcode;
 using Football_Crime_Api.DAL.Teams;
 using Football_Crime_Api.Process;
@@ -44,7 +45,8 @@ namespace Football_Crime_Api
 
             services.AddSingleton<IFootballCrimeProcessor, FootballCrimeProcessor>()
                 .AddSingleton<ITeamsLookup, TeamsLookup>()
-                .AddSingleton<IPostcodeLookup, PostcodeLookup>();
+                .AddSingleton<IPostcodeLookup, PostcodeLookup>()
+                .AddSingleton<ICrimesLookup, CrimesLookup>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

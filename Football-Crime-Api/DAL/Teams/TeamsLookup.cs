@@ -29,10 +29,10 @@ namespace Football_Crime_Api.DAL.Teams
             {
                 var compId = _config.GetValue<string>("FootballData:CompetitionId");
                 client.Headers.Add("X-Auth-Token", _config.GetValue<string>("Tokens:FootballData"));
-                var postcodeData = client.DownloadString(new Uri(_config.GetValue<string>("URLs:FootballData") + "competitions/" + compId + "/teams"));
-                var returnModel = JsonConvert.DeserializeObject<FootballTeamsResponseModel>(postcodeData);
+                var teamsData = client.DownloadString(new Uri(_config.GetValue<string>("URLs:FootballData") + "competitions/" + compId + "/teams"));
+                var teamsModel = JsonConvert.DeserializeObject<FootballTeamsResponseModel>(teamsData);
 
-                foreach(var team in returnModel.teams)
+                foreach(var team in teamsModel.teams)
                 {
                     if (string.IsNullOrEmpty(team.address))
                     {
@@ -40,7 +40,7 @@ namespace Football_Crime_Api.DAL.Teams
                     }
                 }
 
-                return returnModel.teams;
+                return teamsModel.teams;
             }
         }
     }
