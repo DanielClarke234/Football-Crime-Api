@@ -10,5 +10,5 @@ An install can be found here: https://dotnet.microsoft.com/download/dotnet/5.0
 The API is only using standard http so make sure the calls are http and not https!
 
 To call the endpoint:
-* Pull the project and run in Visual Studio using IIS.
-* Call to endpoint: http://localhost:5000/FootballCrime/CrimesAtClubs
+* Pull the project and run in Visual Studio 19 using IIS.
+* Call to endpoint: http://localhost:5000/FootballCrime/CrimesAtClubs via preferred means ( I have been using PostMan to make calls: https://www.postman.com/ )
