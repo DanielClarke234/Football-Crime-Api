@@ -1,4 +1,5 @@
 ﻿using AND.Models.Exceptions;
+using Football_Crime_Api.Models.Paging;
 using Football_Crime_Api.Process;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -24,15 +25,17 @@ namespace Football_Crime_Api.Controllers
 
         [HttpGet]
         [Route("CrimesAtClubs")]
-        public IActionResult GetAllPremierLeagueCrimes()
+        public IActionResult GetAllPremierLeagueCrimes([FromQuery] PagingModel model)
         {
             try
             {
                 var crimes = _footballCrime.GetTeamsAndCrimes();
 
+                var toReturn = crimes.Limit(model).ToList();
+
                 //NOTE: Would use a mapping facility such as auto mapper with a specific return model if a specific return model is required
 
-                return Ok(crimes);
+                return Ok(toReturn);
             }
             catch (UserException ue)
             {
