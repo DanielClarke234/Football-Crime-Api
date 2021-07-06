@@ -12,3 +12,7 @@ The API is only using standard http so make sure the calls are http and not http
 To call the endpoint:
 * Pull the project and run in Visual Studio 19 using IIS.
 * Call to endpoint: http://localhost:5000/FootballCrime/CrimesAtClubs via preferred means ( I have been using PostMan to make calls: https://www.postman.com/ )
+
+To run the tests:
+* Pull the project in Visual Studio 19
+* Go to the test explorer (ctrl e, then t) and click the "Run All Tests" button
