@@ -40,7 +40,7 @@ namespace Football_Crime_Api.Process
                 var postcodeModel = _postcodeLookup.GetPostcodeDetails(team.postcode);
 
                 //If we don't get gps data from the callback then we will need to throw
-                if (postcodeModel.result.latitude == null || postcodeModel.result.longitude == null)
+                if (postcodeModel.result == null || postcodeModel.result.latitude == null || postcodeModel.result.longitude == null)
                 {
                     throw new UserException("Could not get latitude and longitude details for all teams");
                 }

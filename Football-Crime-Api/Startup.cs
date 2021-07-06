@@ -44,9 +44,9 @@ namespace Football_Crime_Api
                 .AddCertificateCache();
 
             services.AddSingleton<IFootballCrimeProcessor, FootballCrimeProcessor>()
-                .AddSingleton<ITeamsLookup, TeamsLookup>()
-                .AddSingleton<IPostcodeLookup, PostcodeLookup>()
-                .AddSingleton<ICrimesLookup, CrimesLookup>();
+                .AddTransient<ITeamsLookup, TeamsLookup>()
+                .AddTransient<IPostcodeLookup, PostcodeLookup>()
+                .AddTransient<ICrimesLookup, CrimesLookup>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
